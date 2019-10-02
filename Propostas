@@ -1,0 +1,24 @@
+Temas:
+
+- Show do milhão (1)
+- Previsão do tempo (4)
+- Quiz (2)
+- Horóscopo (3)
+- Detetive (5)
+
+Projeto:
+Show do milhão
+
+Requisitos:
+- Menu( Cadastro do usuário e opções)
+- Banco de perguntas e respostas(dividido por categorias)
+- Gerador aleatória para escolhas de perguntas
+- Sistemas de etapas
+- Histórico(arquivo)
+
+
+
+Algo a mais:
+-Sistemas de dicas
+- Som no jogo 
+- Interface gráfica
