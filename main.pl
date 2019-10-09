@@ -1,29 +1,10 @@
-menu :- write('Bem vindo ao Show do Milhão!'), nl,
-        write('Escolha uma das opções:'), nl,
-        write(' Digite 1 para jogar'),nl,
-        write(' Digite 2 para ver as regras'),nl,
-        write(' Digite 3 para ver historico'),nl,
-        write(' Digite 3 para sair'),nl,
-        read(Op),
-        opcao(Op).
+imprimeQuestao([]).
+imprimeQuestao([X|Y]):-
+        format("~w\n", X),
+        imprimeQuestao(Y).
 
-% if Op == 1:
-opcao(1) :- iniciajogo().
+end() :-
+		write(" Parabéns, você me venceu!! Até a próxima.\n"),
+		halt(0).
 
-% if Op == 2:
-opcao(2) :- write('Escrever as regras do jogo aqui.').
-
-% if Op == 3:
-opcao(3) :- historico().
-
-% if Op == 4:
-opcao(3) :- write('Até mais!'),
-halt(0).
-
-
-iniciajogo() :- 
-            write("inicia jogo").
-
-
-historico() :- 
-            write("mostra historico").
+fase():-imprimeQuestao([['1'],'QUEM','1.michael jacson','2.bbbbbbbbb']),VERIFICAend().
