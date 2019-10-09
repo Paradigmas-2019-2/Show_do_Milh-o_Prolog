@@ -11,7 +11,12 @@ menu :- write('Bem vindo ao Show do Milhão!'), nl,
 opcao(1) :- iniciajogo().
 
 % if Op == 2:
-opcao(2) :- write('Escrever as regras do jogo aqui.').
+opcao(2) :- write('O jogo consiste em três rodadas e uma pergunta final: '),nl,
+            write('A primeira rodada contem 5 perguntas, cada uma valendo R$ 1.000 cumulativos. '),nl,
+            write('A segunda rodada contem 5 perguntas valendo R$ 10.000 cumulativos cada. '),nl,
+            write('A terceira rodada contem 5 perguntas de R$ 100.000 reais cumulativos cada. '),nl,
+            write('A última pergunta vale R$ 1.000.000'),nl,nl,
+            menu.
 
 % if Op == 3:
 opcao(3) :- historico().
@@ -20,10 +25,8 @@ opcao(3) :- historico().
 opcao(3) :- write('Até mais!'),
 halt(0).
 
-
 iniciajogo() :- 
             write("inicia jogo").
-
 
 historico() :- 
             write("mostra historico").
