@@ -27,7 +27,12 @@ opcao(3) :- write('Até mais!'),
 halt(0).
 
 iniciajogo() :- 
-            write("inicia jogo").
+            write("Vamos lá"),nl,
+            random(0,3,Numquestao),
+            % gera um numero aleatorio entre 0 a 3
+            questao(Numquestao).
+            % chama uma função onde deve ter a questao chamada
+            
 
 historico() :- 
             write("mostra historico").
@@ -35,3 +40,13 @@ historico() :-
 registraUsuario() :-
             write('Digite seu nome: '),nl,
             read(Nome).
+            write("mostra historico"),nl.
+
+questao(0) :- 
+            write("entrou na 0"),nl.
+questao(1) :- 
+            write("entrou na 1"),nl.
+questao(2) :- 
+            write("entrou na 2"),nl.
+questao(3) :- 
+            write("entrou na 3"),nl.
