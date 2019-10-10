@@ -3,12 +3,13 @@ menu :- write('Bem vindo ao Show do Milhão!'), nl,
         write(' Digite 1 para jogar'),nl,
         write(' Digite 2 para ver as regras'),nl,
         write(' Digite 3 para ver historico'),nl,
-        write(' Digite 3 para sair'),nl,
+        write(' Digite 4 para sair'),nl,
         read(Op),
         opcao(Op).
 
 % if Op == 1:
-opcao(1) :- iniciajogo().
+opcao(1) :- registraUsuario(),
+            iniciajogo().
 
 % if Op == 2:
 opcao(2) :- write('O jogo consiste em três rodadas e uma pergunta final: '),nl,
@@ -30,3 +31,7 @@ iniciajogo() :-
 
 historico() :- 
             write("mostra historico").
+
+registraUsuario() :-
+            write('Digite seu nome: '),nl,
+            read(Nome).
