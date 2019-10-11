@@ -23,8 +23,8 @@ opcao(2) :- write('O jogo consiste em três rodadas e uma pergunta final: '),nl,
 opcao(3) :- historico().
 
 % if Op == 4:
-opcao(3) :- write('Até mais!'),
-halt(0).
+opcao(4) :- write('Até mais!'),nl,
+            halt.
 
 iniciajogo() :- 
             write("Vamos lá"),nl,
@@ -40,7 +40,6 @@ historico() :-
 registraUsuario() :-
             write('Digite seu nome: '),nl,
             read(Nome).
-            write("mostra historico"),nl.
 
 questao(0) :- 
             write("entrou na 0"),nl.
