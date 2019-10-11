@@ -1,3 +1,5 @@
+:- dynamic jogador/1.
+
 menu :- write('Bem vindo ao Show do Milhão!'), nl,
         write('Escolha uma das opções:'), nl,
         write(' Digite 1 para jogar'),nl,
@@ -9,6 +11,7 @@ menu :- write('Bem vindo ao Show do Milhão!'), nl,
 
 % if Op == 1:
 opcao(1) :- registraUsuario(),
+            historico(),
             iniciajogo().
 
 % if Op == 2:
@@ -35,11 +38,13 @@ iniciajogo() :-
             
 
 historico() :- 
-            write("mostra historico").
+            write(jogador(Nome)),
+            write(" mostra historico").
 
 registraUsuario() :-
             write('Digite seu nome: '),nl,
-            read(Nome).
+            read(Nome),
+            assert(jogador(Nome)).
 
 questao(0) :- 
             write("entrou na 0"),nl.
