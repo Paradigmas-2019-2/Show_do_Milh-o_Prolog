@@ -1,4 +1,4 @@
-:- dynamic jogador/1.
+:- dynamic jogador/2.
 
 menu :- write('Bem vindo ao Show do Milhão!'), nl,
         write('Escolha uma das opções:'), nl,
@@ -29,16 +29,9 @@ opcao(4) :- write('Até mais!'),nl,
 
 iniciajogo():- fase(1).
             
-
 historico() :- 
-            write(jogador(Nome)),
-            write(" mostra historico").
-
-registraUsuario() :-
-            write('Digite seu nome: '),nl,
-            read(Nome),
-            assert(jogador(Nome)).
-
+            setof(Nome-Pontuacao, jogador(Nome, Pontuacao), L),
+            write(L).
 
 imprimeQuestao([]).
 imprimeQuestao([X|Y]):-
@@ -54,6 +47,8 @@ cls :- write('\33\[2J').
 
 perdeuJogo():-write("Deseja jogar novamente?\n s para sim\n n para nao\n"), read(s),fase(1).
 perdeuJogo():-cls,write("NÃO CONSEGUE NÉ MOISES? ATÉ A PROXIMA\n"),halt(0).
+
+% ----------------------------------------------------------------------------------------------------------------------------------
 
 fase(1):-cls,write("MAHH OLHA SÓ, VAI COMEÇAR O SHOW DO MILHÃO, VALENDO 1000 REAIS! (tananananananan)\n"),random(1,5,X), questao(X).
  
@@ -470,5 +465,3 @@ questao(50):-imprimeQuestao(['As pessoas de qual tipo sanguíneo são considerad
 'd) Tipo AB',
 'e) Tipo ABO']),read(c), end().
 questao(50):-cls,write("Voce perdeu!!!\n"), perdeuJogo().
-
-
