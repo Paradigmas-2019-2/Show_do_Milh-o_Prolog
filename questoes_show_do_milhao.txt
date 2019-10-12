@@ -9,31 +9,28 @@ d) Tem 7 litros. São retirados 1,5 litros
 e) Tem 0,5 litros. São retirados 0,5 litros
 R: b
 
-2. De quem é a famosa frase “Penso, logo existo”?
-
-a) Platão
-b) Galileu Galilei
-c) Descartes
-d) Sócrates
-e) Francis Bacon
+'De quem é a famosa frase “Penso, logo existo”?',
+'a) Platão',
+'b) Galileu Galilei',
+'c) Descartes',
+'d) Sócrates',
+'e) Francis Bacon'
 R: c
 
-3. De onde é a invenção do chuveiro elétrico?
-
-a) França
-b) Inglaterra
-c) Brasil
-d) Austrália
-e) Itália
+'De onde é a invenção do chuveiro elétrico?',
+'a) França',
+'b) Inglaterra',
+'c) Brasil',
+'d) Austrália',
+'e) Itália'
 R: c
 
-4. Quais o menor e o maior país do mundo?
-
-a) Vaticano e Rússia
-b) Nauru e China
-c) Mônaco e Canadá
-d) Malta e Estados Unidos
-e) São Marino e Índia
+'Quais o menor e o maior país do mundo?',
+'a) Vaticano e Rússia',
+'b) Nauru e China',
+'c) Mônaco e Canadá',
+'d) Malta e Estados Unidos',
+'e) São Marino e Índia'
 R: a
 
 5. Qual o nome do presidente do Brasil que ficou conhecido como Jango?
