@@ -21,7 +21,7 @@ opcao(2) :- write('(1) - O jogo possui 10 fases.'),nl,
             write('(4) - O jogador poderá desistir recebendo 40% da quantia da ultima rodada que acertou.'),nl,
             write('(5) - O jogador poderá ter auxílio na resolução das perguntas, universitários, plateia'),nl,
             write('(6) - O jogador ganha se acertar a ultima questão.'),nl,
-            write('(7) - O jogo termina se o jogador desistir ou errar alguma questão.'),nl,
+            write('(7) - O jogo termina se o jogador desistir ou errar alguma questão.'),nl,nl,
             menu.
 
 % if Op == 3:
@@ -53,7 +53,7 @@ save_txt :- jogador(X, Y),
             nl(Arq),
             close(Arq).
 
-erase_all :- esquece(jogador(X, Y)).
+erase_all :- esquece(jogador(X, Y)),fail.
 erase_all.
 
 esquece(X) :- retract(X).
@@ -68,10 +68,10 @@ end() :-
 
 cls :- write('\33\[2J').
 
-pontuacaoFinal(Pontuacao) :- registraUsuario(Pontuacao).
+pontuacaoFinal(Pontuacao) :- registraUsuario(Pontuacao), save_txt.
 
-perdeuJogo():-write("Deseja jogar novamente?\n s para sim\n n para nao\n"), read(s),fase(1).
-perdeuJogo():-cls,write("NÃO CONSEGUE NÉ MOISES? ATÉ A PROXIMA\n").
+perdeuJogo():-write("Deseja jogar novamente?\n s para sim\n n para nao\n"), read(s), erase_all, fase(1).
+perdeuJogo():-cls,write("NÃO CONSEGUE NÉ MOISES? ATÉ A PROXIMA\n"),halt.
 
 fase(1):-cls,write("MAHH OLHA SÓ, VAI COMEÇAR O SHOW DO MILHÃO, VALENDO 1000 REAIS! (tananananananan)\n"),random(1,5,X), questao(X).
 
