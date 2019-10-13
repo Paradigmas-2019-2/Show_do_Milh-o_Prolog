@@ -15,7 +15,13 @@ menu :- write('Bem vindo ao Show do Milhão!'), nl,
 opcao(1) :- iniciajogo().
 
 % if Op == 2:
-opcao(2) :- write('Novas regras...'),
+opcao(2) :- write('(1) - O jogo possui 10 fases.'),nl,
+            write('(2) - Cada fase possui 1 uma pergunta.'),nl,
+            write('(3) - Se o jogador acertar a pergunta ele passa para próxima fase.'),nl,
+            write('(4) - O jogador poderá desistir recebendo 40% da quantia da ultima rodada que acertou.'),nl,
+            write('(5) - O jogador poderá ter auxílio na resolução das perguntas, universitários, plateia'),nl,
+            write('(6) - O jogador ganha se acertar a ultima questão.'),nl,
+            write('(7) - O jogo termina se o jogador desistir ou errar alguma questão.'),nl,
             menu.
 
 % if Op == 3:
@@ -35,6 +41,25 @@ imprimeQuestao([]).
 imprimeQuestao([X|Y]):-
         format("~w\n", X),
         imprimeQuestao(Y).
+
+registraUsuario(Pontuacao) :-
+            write('Digite seu nome: '),nl,
+            read(Nome),
+            memoriza(jogador(Nome, Pontuacao)).
+
+save_txt :- jogador(X, Y),
+            open('historico.txt', append, Arq),
+            write(Arq, X), tab(Arq, 3), write(Arq, Y),
+            nl(Arq),
+            close(Arq).
+
+erase_all :- esquece(jogador(X, Y)).
+erase_all.
+
+esquece(X) :- retract(X).
+esquece(X).
+
+memoriza(X) :- esquece(X), assert(X).
 
 end() :-
         cls,
@@ -463,22 +488,3 @@ questao(50):-imprimeQuestao(['As pessoas de qual tipo sanguíneo são considerad
 'd) Tipo AB',
 'e) Tipo ABO']),read(c), end().
 questao(50):-cls,write("Voce perdeu!!!\n"), pontuacaoFinal(500000), perdeuJogo().
-
-registraUsuario(Pontuacao) :-
-            write('Digite seu nome: '),nl,
-            read(Nome),
-            memoriza(jogador(Nome, Pontuacao)).
-
-save_txt :- jogador(X, Y),
-            open('historico.txt', append, Arq),
-            write(Arq, X), tab(Arq, 3), write(Arq, Y),
-            nl(Arq),
-            close(Arq).
-
-erase_all :- esquece(jogador(X, Y)).
-erase_all.
-
-esquece(X) :- retract(X).
-esquece(X).
-
-memoriza(X) :- esquece(X), assert(X).
